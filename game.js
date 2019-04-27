@@ -72,7 +72,7 @@ function displayDisney(searchedQuery) {
             const gif_image_anim_src = gif_image_object.original.url;
             const rating = element.rating;
             const imgid = element.id;
-            $("#graphics-view").append(`${rating} ➡️  <img id=${imgid} animateUrl=${gif_image_anim_src} stillUrl=${gif_image_still_src} src=${gif_image_still_src} height='100' width='100' />`);
+            $("#graphics-view").append(`${rating} ➡️  <img id=${imgid} animateUrl=${gif_image_anim_src} stillUrl=${gif_image_still_src} src=${gif_image_still_src} style="margin-top:20px"; height='200' width='250' />`);
         });
         if (index === 0) { //if nothing was returned
             const buttonSearched = "<button onClick=displayDisney('" + searchedQuery + "') type='button' class='btn btn-secondary'>No Result Found For: " + searchedQuery + " </button>";
