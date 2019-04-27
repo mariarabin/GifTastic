@@ -14,15 +14,25 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-12" id="list"></div>
+            <!----------------Buttons will be displayed here-------------------->
+            <div class="col-md-12" id="buttons-view"></div>
         </div>
+        <hr />
         <div class="row">
-            <div class="col-md-8" id="graphics"></div>
-            <div class="col-md-4">
-                <p>Add a baby giphy</p>
-                <form>
-                    <input type="text" id="typeBaby" style="margin: 10px 0px"><br>
-                    <input type="submit" id="look" value="Submit">
+            <!----------------Giphy will be dumped here------------------------->
+            <div class="col-md-12" id="graphics-view"></div>
+        </div>
+        <hr />
+        <div class="row">
+            <!----------------Giphy will be searched here----------------------->
+            <div class="col-md-12">
+                <form id="giphy-form" onSubmit="return displayDisney('');">
+                    <label for="giphy-input"><b>Add a Disney giphy:</b></label>
+                    <br>
+                    <input onFocus='this.select()' type="text" id="giphy-input" value=''>
+                    <br>
+                    <!------------- Button triggers new giphy to be added --------------->
+                    <input id="add-giphy" type="submit" value="Submit" style="margin-top: 10px">
                 </form>
             </div>
         </div>
