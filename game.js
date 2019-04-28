@@ -4,11 +4,11 @@ var APIKey = "IXHrCW7HbVSkilRoks118mHFZJi08MKa";
 var limit = 10;
 
 //initial array of disney giphys
-var topics = ["Elsa", "Rapunzel", "Belle", "Cinderella", "Ariel", "Jasmine", "Anna", "Ursula", "Tigger", "Moana", "Megara", "Simba"];
+var topics = ["Alice", "Simba", "Wendy", "Elsa", "Tarzan", "Stitch", "Pocahontas", "Anastasia", "Pinocchio", "Rapunzel", "Belle", "Cinderella", "Ariel", "Jasmine", "Anna", "Ursula", "Tigger", "Moana", "Megara", "Simba"];
 
 var index = 0; // for empty search result 
 
-var move = {}; // for still & moving 
+var move = {}; // for still & moving images
 var addPair = function (myKey, myValue) {
     move[myKey] = myValue;
 };
@@ -22,16 +22,16 @@ $('body').on('click', 'img', function (e) {
     const imageid = imgObj.getAttribute('id');
     var moveValue = giveValue(imageid);
     if (moveValue === undefined || moveValue === null) {
-        addPair(imageid, 0); //default which is still
+        addPair(imageid, 0); //default is still image
     }
     moveValue = giveValue(imageid);
 
-    //still to move
+    //image to move
     if (moveValue === 0) {
         imgObj.setAttribute('src', imgObj.getAttribute('animateUrl'));
         addPair(imageid, 1);
 
-        //move to still
+        //image to not move
     } else if (moveValue === 1) {
         imgObj.setAttribute('src', imgObj.getAttribute('stillUrl'));
         addPair(imageid, 0);
@@ -72,7 +72,7 @@ function displayDisney(searchedQuery) {
             const gif_image_anim_src = gif_image_object.original.url;
             const rating = element.rating;
             const imgid = element.id;
-            $("#graphics-view").append(`${rating} ➡️  <img id=${imgid} animateUrl=${gif_image_anim_src} stillUrl=${gif_image_still_src} src=${gif_image_still_src} style="margin-top:20px"; height='200' width='250' />`);
+            $("#graphics-view").append(`Rating: <b>${rating}</b> ➡️  <img id=${imgid} animateUrl=${gif_image_anim_src} stillUrl=${gif_image_still_src} src=${gif_image_still_src} style="margin-top:20px"; height='200' width='250' />`);
         });
         if (index === 0) { //if nothing was returned
             const buttonSearched = "<button onClick=displayDisney('" + searchedQuery + "') type='button' class='btn btn-secondary'>No Result Found For: " + searchedQuery + " </button>";
